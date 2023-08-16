@@ -18,7 +18,7 @@ export const Register = () => {
           </form>
         </div>
         <div className="left">
-          <h1>Social App</h1>
+          <h1>The Social.</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sit
             enim, nihil laboriosam ducimus eius magni saepe tenetur ratione cum

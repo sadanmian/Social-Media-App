@@ -7,3 +7,5 @@ package that I installed
 ### `npm i sass`
 
 ### `npm install react-router-dom`
+
+### `npm install @mui/icons-material @mui/material @emotion/styled @emotion/react`
