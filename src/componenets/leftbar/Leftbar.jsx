@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./leftbar.scss";
 import Friends from "../../assets/1.png";
 import Groups from "../../assets/2.png";
@@ -13,18 +13,17 @@ import Messages from "../../assets/10.png";
 import Tutorials from "../../assets/11.png";
 import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
+import { AuthContext } from "../../context/authContext";
 
 export const Leftbar = () => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="leftbar">
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img
-              src="https://pbs.twimg.com/profile_images/1283759937177317376/iKqA9lOB_400x400.jpg"
-              alt=""
-            />
-            <span>Sadan Mian</span>
+            <img src={currentUser.profilePic} alt="" />
+            <span>{currentUser.name}</span>
           </div>
           <div className="item">
             <img src={Friends} alt="" />
@@ -91,48 +90,3 @@ export const Leftbar = () => {
     </div>
   );
 };
-
-{
-  /* <div className="menu">
-          <span>Your Shortcuts</span>
-          <div className="menu">
-            <span>Your shortcuts</span>
-            <div className="item">
-              <img src={Events} alt="" />
-              <span>Events</span>
-            </div>
-            <div className="item">
-              <img src={Gaming} alt="" />
-              <span>Gaming</span>
-            </div>
-            <div className="item">
-              <img src={Gallery} alt="" />
-              <span>Gallery</span>
-            </div>
-            <div className="item">
-              <img src={Videos} alt="" />
-              <span>Videos</span>
-            </div>
-            <div className="item">
-              <img src={Messages} alt="" />
-              <span>Messages</span>
-            </div>
-          </div>
-          <hr />
-          <div className="menu">
-            <span>Others</span>
-            <div className="item">
-              <img src={Fund} alt="" />
-              <span>Fundraiser</span>
-            </div>
-            <div className="item">
-              <img src={Tutorials} alt="" />
-              <span>Tutorials</span>
-            </div>
-            <div className="item">
-              <img src={Courses} alt="" />
-              <span>Courses</span>
-            </div>
-          </div>
-        </div> */
-}

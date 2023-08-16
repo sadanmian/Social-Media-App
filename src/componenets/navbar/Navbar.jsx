@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import {
@@ -9,9 +9,14 @@ import {
   NotificationsOutlined,
   PersonOutline,
   SearchOutlined,
+  WbSunnyOutlined,
 } from "@mui/icons-material";
+import { DarkModeContext } from "../../context/darkModeContext";
+import { AuthContext } from "../../context/authContext";
 
 export const Navbar = () => {
+  const { toggle, darkMode } = useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="navbar">
       <div className="left">
@@ -19,7 +24,11 @@ export const Navbar = () => {
           <span>The Social</span>
         </Link>
         <HomeOutlined />
-        <DarkModeOutlined />
+        {!darkMode ? (
+          <DarkModeOutlined style={{ cursor: "pointer" }} onClick={toggle} />
+        ) : (
+          <WbSunnyOutlined style={{ cursor: "pointer" }} onClick={toggle} />
+        )}
         <GridViewOutlined />
         <div className="search">
           <SearchOutlined />
@@ -31,11 +40,8 @@ export const Navbar = () => {
         <EmailOutlined />
         <NotificationsOutlined />
         <div className="user">
-          <img
-            src="https://pbs.twimg.com/profile_images/1283759937177317376/iKqA9lOB_400x400.jpg"
-            alt=""
-          />
-          <span>Sadan Mian</span>
+          <img src={currentUser.profilePic} alt="" />
+          <span>{currentUser.name}</span>
         </div>
       </div>
     </div>
