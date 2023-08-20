@@ -16,8 +16,6 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 
-
-
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -39,9 +37,9 @@ function App() {
   };
 
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to={"/login"} />;
-    }
+    // if (!currentUser) {
+    //   return <Navigate to={"/login"} />;
+    // }
     return children;
   };
 
