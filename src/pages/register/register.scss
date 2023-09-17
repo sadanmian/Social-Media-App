@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .register {
   height: 100vh;
   background: linear-gradient(
@@ -10,6 +12,12 @@
   align-items: center;
   justify-content: center;
 
+  @include mobile {
+    height: 100%;
+    width: 100vw;
+    overflow: scroll;
+  }
+
   .card {
     overflow: hidden;
     background-color: white;
@@ -17,6 +25,14 @@
     display: flex;
     border-radius: 10px;
     min-height: 500px;
+
+    @include mobile {
+      width: 90%;
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 50px;
+      min-height: 50px;
+    }
 
     .left {
       flex: 1;
@@ -30,9 +46,24 @@
       gap: 30px;
       color: white;
 
+      @include mobile {
+        gap: 20px;
+      }
+
       h1 {
         font-size: 100px;
         line-height: 100px;
+
+        @include mobile {
+          font-size: 50px;
+          line-height: 50px;
+        }
+      }
+
+      p {
+        @include mobile {
+          display: none;
+        }
       }
 
       span {
@@ -58,6 +89,10 @@
       gap: 50px;
       justify-content: center;
 
+      @include mobile {
+        gap: 25px;
+      }
+
       h1 {
         color: #555;
       }
@@ -66,6 +101,10 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        @include mobile {
+          gap: 25px;
+        }
 
         input {
           border: none;
@@ -82,6 +121,10 @@
           background-color: rebeccapurple;
           color: white;
           font-weight: bold;
+
+          @include mobile {
+            width: 100%;
+          }
         }
       }
     }
